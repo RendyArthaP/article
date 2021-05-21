@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Poppins";
+  src: local(''),
+    url('/public/fonts/Poppins/Poppins-Regular.ttf') format('ttf');
+  font-weight: 400;
+  
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: local(''),
+    url('/public/fonts/Poppins/Poppins-Bold.ttf') format('ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Cabin";
+  src: local(''),
+    url('/public/fonts/Cabins/Cabin-Regular.ttf') format('ttf');
+  font-weight: 400;
+}
