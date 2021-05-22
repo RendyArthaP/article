@@ -19,13 +19,15 @@ module.exports = {
       "white": "#FFFFFF",
       "black": "#000000",
       "grey": "#828282",
-      "gray": "#333333"
+      "gray": "#333333",
+      "grayText": "#808080"
     },
     borderColor: theme => ({
       "orange": "#FE7902",
       "white": "#FFFFFF",
       "black": "#000000",
-      "grey": "#E0E0E0"
+      "grey": "#E0E0E0",
+      "gray": "#808080"
     })
   },
   variants: {
