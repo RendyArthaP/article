@@ -8,8 +8,8 @@ import { getArticle } from '../redux/actions/article.actions';
 
 export default function Home() {
   const dispatch = useDispatch()
-  const articles = useSelector((state) => state)
-  console.log(articles)
+  const articles = useSelector((state) => state.handleArticle.data.data)
+  const loading = useSelector((state => state.handleArticle.isLoading))
 
   useEffect(() => {
     dispatch(getArticle())
@@ -25,7 +25,16 @@ export default function Home() {
       <main>
         <Navbar />
         <Searchbar />
-        <Article />
+        {loading 
+          ?
+            <div>
+              <h1 className="text-center mt-20 text-3xl font-bold">
+                Please wait...
+              </h1>
+            </div>
+          :
+            <Article articles = {articles}/>
+        }
       </main>
     </div>
   )
