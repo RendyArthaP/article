@@ -2,8 +2,18 @@ import Head from 'next/head'
 import Article from '../components/Article'
 import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
+import { useSelector, useDispatch} from 'react-redux';
+import { useEffect } from 'react'
+import { getArticle } from '../redux/actions/article.actions';
 
 export default function Home() {
+  const dispatch = useDispatch()
+  const articles = useSelector((state) => state)
+  console.log(articles)
+
+  useEffect(() => {
+    dispatch(getArticle())
+  }, [dispatch])
   return (
     <div>
       <Head>

@@ -53,9 +53,9 @@ export const getArticle = () => {
     dispatch(getArticleRequest())
 
     axios
-      .get(process.env.REACT_APP_ARTICLE)
+      .get(process.env.ARTICLE)
       .then((result) => dispatch(getArticleSuccess(result.data)))
-      .error((error) => dispatch(getArticleError(error)))
+      .catch((error) => dispatch(getArticleError(error)))
   }
 }
 
@@ -63,7 +63,7 @@ export const getArticleById = (id) => {
   return function(dispatch) {
     dispatch(getArticleByIdRequest())
     axios
-      .get(`${process.env.REACT_APP_ARTICLE}/${id}`)
+      .get(`${process.env.ARTICLE}/${id}`)
       .then((result) => dispatch(getArticleByIdSuccess(result.data)))
       .catch((error) => dispatch(getArticleByIdError(error)))
   }

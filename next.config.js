@@ -19,4 +19,7 @@ module.exports = withFonts({
     });
     return config;
   },
+  env: {
+    ARTICLE: process.env.NEXT_PUBLIC_ARTICLE
+  }
 });
