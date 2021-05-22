@@ -28,7 +28,10 @@ module.exports = {
       "black": "#000000",
       "grey": "#E0E0E0",
       "gray": "#808080"
-    })
+    }),
+    boxShadow: {
+      'orange': '0px 0px 50px rgba(254, 121, 2, 0.5)'
+    },
   },
   variants: {
     backgroundColor: ["responsive", "hover", "focus", "active"],
