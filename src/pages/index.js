@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Article from '../components/Article'
 import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
 
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <Navbar />
         <Searchbar />
+        <Article />
       </main>
     </div>
   )
