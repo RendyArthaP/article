@@ -6,6 +6,7 @@ import { getArticleById } from '../../redux/actions/article.actions';
 import Navbar from '../../components/Navbar';
 import SocialDetails from '../../components/SocialDetails';
 import Author from '../../components/Author';
+import Comment from '../../components/Comment';
 
 const DetailsArticle = () => {
   const router = useRouter()
@@ -60,6 +61,7 @@ const DetailsArticle = () => {
               </div>
               <SocialDetails />
               <Author />
+              <Comment />
             </div>
         }
       </main>
