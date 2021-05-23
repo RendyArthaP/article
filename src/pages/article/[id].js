@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react'
 import { getArticleById } from '../../redux/actions/article.actions';
 import Navbar from '../../components/Navbar';
+import SocialDetails from '../../components/SocialDetails';
 
 const DetailsArticle = () => {
   const router = useRouter()
@@ -56,6 +57,7 @@ const DetailsArticle = () => {
                   {articleByID.description}
                 </p>
               </div>
+              <SocialDetails />
             </div>
         }
       </main>
