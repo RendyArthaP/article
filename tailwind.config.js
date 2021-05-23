@@ -27,7 +27,8 @@ module.exports = {
       "white": "#FFFFFF",
       "black": "#000000",
       "grey": "#E0E0E0",
-      "gray": "#808080"
+      "gray": "#808080",
+      "greyBorder": "#F2F2F2"
     }),
     boxShadow: {
       'orange': '0px 0px 50px rgba(254, 121, 2, 0.5)'

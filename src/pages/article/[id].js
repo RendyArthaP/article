@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { getArticleById } from '../../redux/actions/article.actions';
 import Navbar from '../../components/Navbar';
 import SocialDetails from '../../components/SocialDetails';
+import Author from '../../components/Author';
 
 const DetailsArticle = () => {
   const router = useRouter()
@@ -58,6 +59,7 @@ const DetailsArticle = () => {
                 </p>
               </div>
               <SocialDetails />
+              <Author />
             </div>
         }
       </main>

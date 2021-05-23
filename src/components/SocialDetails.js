@@ -9,7 +9,7 @@ import Bookmark from "../assets/icons/Bookmark";
 const SocialDetails = () => {
   const [claps, setClaps] = useState(0)
   return ( 
-    <div className="mt-6 flex flex-col md:flex-row md:justify-between">
+    <div className="mt-6 pb-6 flex flex-col md:flex-row md:justify-between border-b border-greyBorder">
       <div className="flex flex-row items-center md:mt-4">
         <div onClick={() => setClaps(claps + 1)} className="cursor-pointer">
           <Claphands />
