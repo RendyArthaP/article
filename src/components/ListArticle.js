@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const ListArticle = ({article}) => {
   return (
-    <Link href={`/articles/${article._id}`}>
+    <Link href={`/article/${article._id}`}>
       <div className="flex flex-col lg:flex-row border cursor-pointer border-grey rounded w-full lg:h-48 lg:w-5/12 my-4 mx-auto">
         <div className="">
           <img

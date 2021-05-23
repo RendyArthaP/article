@@ -59,12 +59,11 @@ export const getArticle = () => {
   }
 }
 
-export const getArticleById = (id) => {
+export const getArticleById = (_id) => {
   return function(dispatch) {
     dispatch(getArticleByIdRequest())
-    
     axios
-      .get(`${process.env.ARTICLE}/${id}`)
+      .get(`${process.env.ARTICLE}/${_id}`)
       .then((result) => dispatch(getArticleByIdSuccess(result.data)))
       .catch((error) => dispatch(getArticleByIdError(error)))
   }

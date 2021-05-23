@@ -1,6 +1,6 @@
 const Searchbar = () => {
   return (
-    <div className="mt-28 flex flex-col px-6 md:flex-row md:justify-between w-full mx-auto md:px-16 max-w-6xl">
+    <div className="mt-10 flex flex-col px-6 md:flex-row md:justify-between w-full mx-auto md:px-16 max-w-6xl">
       <div className="w-full max-w-3xl my-2 md:my-0 md:mx-4">
         <input 
           type="text"
