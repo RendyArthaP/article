@@ -9,6 +9,7 @@ const Comment = () => {
   let { id } = router.query
   const dispatch = useDispatch()
   const comments = useSelector((state) => state.handleComment.data.data)
+  const [inputComment, setInputComment] = useState("")
 
   useEffect(() => {
     dispatch(getComment(id))
@@ -36,17 +37,26 @@ const Comment = () => {
         <input 
           type="text"
           className="border border-gray rounded p-2 focus:outline-none w-full"
+          value={inputComment}
+          onChange={(e) => setInputComment(e.target.value)}
         />
         <button className="bg-orange border -ml-16 absolute py-2 border-gray rounded w-16 text-white">
           Add
         </button>
       </div>
-      {!!comments && comments.map((comment, index) => (
-        <ListComment 
-          comment = {comment} 
-          key={index}
-        />
-      ))}
+      {!!comments && comments.length === 0 
+        ? 
+          <div className="text-center font-bold text-2xl">
+            <h1>Silahkan beri review</h1>
+          </div>
+        :
+          !!comments && comments.map((comment, index) => (
+            <ListComment 
+              comment = {comment} 
+              key={index}
+            />
+          ))
+      }
     </main>
   );
 }
