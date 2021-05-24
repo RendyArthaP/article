@@ -6,11 +6,7 @@ import {
   LOGOUT
 } from '../actions/auth.actions';
 
-const token = () => {
-  if (typeof window !== "undefined") {
-    return localStorage.getItem("token")
-  }
-}
+const token = typeof window !== "undefined" ? localStorage.getItem("token") : null
 
 const initialState = !token 
   ?
@@ -29,6 +25,7 @@ const initialState = !token
 const handleAuth = (state = initialState, action) => {
   switch(action.type) {
     case AUTH_REQUEST:
+      console.log(token)
       return {
         ...state,
         isLoading: true
@@ -44,6 +41,7 @@ const handleAuth = (state = initialState, action) => {
         isLoading: false
       }
     case LOGIN_SUCCESS:
+      console.log(token())
       return {
         ...state,
         isLogged: true,

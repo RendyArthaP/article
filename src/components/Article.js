@@ -41,7 +41,7 @@ const Article = ({articles, searchName, setSearchName, searchNameArticle}) => {
           null
         :
         <button 
-          className="bg-orange text-white shadow-orange mb-4 py-2 mx-auto flex justify-center focus:outline-none rounded w-32"
+          className="bg-orange text-white shadow-orange my-24 py-2 mx-auto flex justify-center focus:outline-none rounded w-32"
           onClick={loadMore}
         >
           Load More

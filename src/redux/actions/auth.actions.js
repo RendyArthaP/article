@@ -67,8 +67,8 @@ export const registerAction = (e, data, setRegister) => {
 }
 
 export const loginAction = (e, data, setLogin) => {
-  e.preventDefault();
   return function(dispatch) {
+    e.preventDefault();
     dispatch(authRequest())
 
     axios

@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Article from '../components/Article'
 import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
+import Footer from '../components/Footer';
 import { useSelector, useDispatch} from 'react-redux';
 import { useEffect, useState } from 'react'
 import { getArticle } from '../redux/actions/article.actions';
@@ -53,6 +54,7 @@ export default function Home() {
               searchNameArticle = {searchNameArticle}
             />
         }
+        <Footer />
       </main>
     </div>
   )

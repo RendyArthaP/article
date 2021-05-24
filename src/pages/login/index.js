@@ -3,17 +3,19 @@ import Link from 'next/link';
 import { loginAction } from '../../redux/actions/auth.actions';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Router from "next/router";
 
 const Login = () => {
   const dispatch = useDispatch()
   const[login, setLogin] = useState({
-    email: "",
+    name: "",
     password: ""
   })
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
+    dispatch(loginAction(e, login, setLogin))
+    // Router.push('/')
   }
   return ( 
     <>
@@ -28,15 +30,18 @@ const Login = () => {
             <h2 className="text-center font-semibold text-3xl lg:text-4xl text-orange">
               Login
             </h2>
-            <form className="mt-10">
+            <form 
+              className="mt-10"
+              onSubmit={handleLogin}
+            >
               <label className="block text-xs font-semibold text-gray uppercase">
-                E-mail
+                Username
               </label>
               <input 
-                id="email" 
-                type="email" 
-                name="email" 
-                placeholder="Your E-mail Address" 
+                id="name" 
+                type="name" 
+                name="name" 
+                placeholder="Your Username" 
                 className="block w-full py-3 px-1 mt-2 text-gray-800 appearance-none border-b-2 border-gray-100 focus:text-gray-500 focus:outline-none focus:border-gray-200"
                 required
               />
