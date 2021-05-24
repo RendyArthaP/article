@@ -14,7 +14,6 @@ const DetailsArticle = () => {
   let { id } = router.query
   const dispatch = useDispatch()
   const articleByID = useSelector((state) => state.handleArticle.dataById)
-  console.log(articleByID)
   const loading = useSelector((state) => state.handleArticle.isLoading)
 
   useEffect(() => {

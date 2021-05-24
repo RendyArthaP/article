@@ -5,9 +5,9 @@ import Linkedin from "../assets/icons-footer/Linkedin"
 
 const Footer = () => {
   return ( 
-    <footer>
+    <footer className="flex-none">
       <div className="bg-orange px-4 md:px-6 xl:px-10 2xl:px-16 flex flex-wrap flex-col md:flex-row md:justify-between">
-        <div className="pt-4">
+        <div className="py-4">
           <div>
             <h1 className="font-bold text-4xl text-white">
               Designate.

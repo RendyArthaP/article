@@ -1,11 +1,24 @@
 import ListComment from "./ListComment"
+import { useDispatch, useSelector } from 'react-redux';
+import { postComment, getComment } from '../redux/actions/comment.actions';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Comment = () => {
+  const router = useRouter()
+  let { id } = router.query
+  const dispatch = useDispatch()
+  const comments = useSelector((state) => state.handleComment.data.data)
+
+  useEffect(() => {
+    dispatch(getComment(id))
+  }, [dispatch, id])
+
   return (  
     <main className="mt-6 pb-6">
       <div className="flex flex-col md:flex-row justify-between">
         <h1 className="text-base font-normal">
-          6 comments
+          {!!comments && comments.length} comments
         </h1>
         <div>
           <span className="md:mx-2 text-base font-normal text-gray">
@@ -28,7 +41,12 @@ const Comment = () => {
           Add
         </button>
       </div>
-      <ListComment />
+      {!!comments && comments.map((comment, index) => (
+        <ListComment 
+          comment = {comment} 
+          key={index}
+        />
+      ))}
     </main>
   );
 }

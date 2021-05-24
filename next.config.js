@@ -23,6 +23,8 @@ module.exports = withFonts({
     ARTICLE: process.env.NEXT_PUBLIC_ARTICLE,
     GET_USER: process.env.NEXT_PUBLIC_USER,
     REGISTER: process.env.NEXT_PUBLIC_REGISTER,
-    LOGIN: process.env.NEXT_PUBLIC_LOGIN
+    LOGIN: process.env.NEXT_PUBLIC_LOGIN,
+    GET_COMMENT: process.env.NEXT_PUBLIC_COMMENT,
+    POST_COMMENT: process.env.NEXT_PUBLIC_POST_COMMENT
   }
 });
