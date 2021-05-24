@@ -26,8 +26,7 @@ const Article = ({articles, searchName, setSearchName, searchNameArticle}) => {
             return article
           } else if(article.title.toLowerCase().includes(searchName.toLowerCase())) {
             return article
-          }
-          return null
+          } return null
         }).slice(0, pageLoad).map((article) => (
           <ListArticle 
             key={article._id} 
@@ -36,6 +35,7 @@ const Article = ({articles, searchName, setSearchName, searchNameArticle}) => {
           />
         ))}
       </div>
+      
       {pageLoad > 8 
         ? 
           null

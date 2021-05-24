@@ -39,9 +39,9 @@ export const logoutAction = () => {
   }
 }
 
-export const registerAction = (e, data, setRegister, setAlert, history) => {
-  e.preventDefault();
+export const registerAction = (e, data, setRegister) => {
   return function(dispatch) {
+    e.preventDefault();
     dispatch(authRequest())
 
     axios
@@ -52,14 +52,13 @@ export const registerAction = (e, data, setRegister, setAlert, history) => {
             ...data,
             password: ""
           })
-          setAlert("Username or email already taken")
+          alert("Username or email already taken")
           dispatch(authFailed("Invalid"))
         } else {
           axios
             .post(process.env.REGISTER, data)
             .then((result) => {
               dispatch(registerSuccess(result.data))
-              history.push('/login')
             })
             .catch((error) => dispatch(authFailed(error)))
         }
@@ -67,7 +66,7 @@ export const registerAction = (e, data, setRegister, setAlert, history) => {
   }
 }
 
-export const loginAction = (e, data, history, setLogin) => {
+export const loginAction = (e, data, setLogin) => {
   e.preventDefault();
   return function(dispatch) {
     dispatch(authRequest())
@@ -79,8 +78,6 @@ export const loginAction = (e, data, history, setLogin) => {
           localStorage.token = result.data.token
           localStorage.payload = JSON.stringify(result.data.data);
           dispatch(loginSuccess(result.data.token))
-
-          history.push('/')
         } else {
           setLogin({
             ...data,

@@ -1,8 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import Router from "next/router";
+import { registerAction } from '../../redux/actions/auth.actions';
 
 const Register = () => {
+  const dispatch = useDispatch()
   const [register, setRegister] = useState({
     name:"",
     email:"",
@@ -14,6 +18,16 @@ const Register = () => {
       [e.target.name]: e.target.value
     })
   }
+  
+  const handleRegister = (e) => {
+    e.preventDefault();
+    dispatch(registerAction(e, register, setRegister))
+    Router.push('/login')
+  }
+
+  useEffect(() => {
+
+  }, [register])
   return (  
     <>
       <Head>
@@ -27,7 +41,10 @@ const Register = () => {
             <h2 className="text-center font-semibold text-3xl lg:text-4xl text-orange">
               Register
             </h2>
-            <form className="mt-10">
+            <form 
+              className="mt-10"
+              onSubmit={handleRegister}
+            >
               <label className="block text-xs font-semibold text-gray uppercase">
                 Name
               </label>

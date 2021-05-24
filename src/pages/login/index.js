@@ -1,7 +1,20 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { loginAction } from '../../redux/actions/auth.actions';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
+  const dispatch = useDispatch()
+  const[login, setLogin] = useState({
+    email: "",
+    password: ""
+  })
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    
+  }
   return ( 
     <>
       <Head>
