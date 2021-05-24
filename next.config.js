@@ -20,6 +20,9 @@ module.exports = withFonts({
     return config;
   },
   env: {
-    ARTICLE: process.env.NEXT_PUBLIC_ARTICLE
+    ARTICLE: process.env.NEXT_PUBLIC_ARTICLE,
+    GET_USER: process.env.NEXT_PUBLIC_USER,
+    REGISTER: process.env.NEXT_PUBLIC_REGISTER,
+    LOGIN: process.env.NEXT_PUBLIC_LOGIN
   }
 });

@@ -10,7 +10,7 @@ const Article = ({articles}) => {
   return (
     <>
       <div className="mt-8 lg:mt-24 w-full max-w-6xl mx-auto px-4 md:px-20 lg:px-8 2xl:px-16 flex flex-row flex-wrap justify-between"> 
-        {articles.slice(0, pageLoad).map((article) => {
+        {!!articles && articles.slice(0, pageLoad).map((article) => {
           return (
             <ListArticle 
               key={article._id} 

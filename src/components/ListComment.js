@@ -10,7 +10,7 @@ const ListComment = () => {
   return ( 
     <div className="mt-6 flex flex-row items-center">
       <div className="w-10 h-10 bg-orange rounded-full">
-        <h1 className="text-lg text-center pt-1.5">
+        <h1 className="text-lg text-center pt-1.5 text-white">
           {comment.name.charAt(0).toUpperCase()}
         </h1>
       </div>

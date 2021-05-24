@@ -9,9 +9,11 @@ const Navbar = () => {
       className="flex flex-row justify-between p-4 md:px-6 shadow-lg xl:px-10 2xl:px-16"
     >
       <div className="flex flex-row items-center">
-        <h1 className="text-orange font-bold text-3xl">
-          Designate.
-        </h1>
+        <Link href="/">
+          <h1 className="text-orange font-bold text-3xl cursor-pointer">
+            Designate.
+          </h1>
+        </Link>
         <div className="hidden lg:flex flex-row md:ml-6">
           <h1 className="mx-4 font-normal text-xl cursor-pointer hover:text-orange">Event</h1>
           <h1 className="mx-4 font-normal text-xl cursor-pointer hover:text-orange">Blog</h1>

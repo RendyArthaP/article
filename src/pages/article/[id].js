@@ -18,6 +18,7 @@ const DetailsArticle = () => {
   useEffect(() => {
     dispatch(getArticleById(id))
   }, [dispatch, id])
+  
   return (
     <div>
       <Head>
