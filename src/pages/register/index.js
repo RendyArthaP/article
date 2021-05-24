@@ -1,7 +1,19 @@
 import Head from 'next/head';
-import Link from 'next/link'
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 const Register = () => {
+  const [register, setRegister] = useState({
+    name:"",
+    email:"",
+    password:""
+  })
+  const handleChange = (e) => {
+    setRegister({
+      ...register,
+      [e.target.name]: e.target.value
+    })
+  }
   return (  
     <>
       <Head>
@@ -20,6 +32,8 @@ const Register = () => {
                 Name
               </label>
               <input 
+                value={register.name}
+                onChange={handleChange}
                 id="name" 
                 type="name" 
                 name="name" 
@@ -31,6 +45,8 @@ const Register = () => {
                 E-mail
               </label>
               <input 
+                value={register.email}
+                onChange={handleChange}
                 id="email" 
                 type="email" 
                 name="email" 
@@ -42,6 +58,8 @@ const Register = () => {
                 Password
               </label>
               <input 
+                value={register.password}
+                onChange={handleChange}
                 id="password" 
                 type="password" 
                 name="password" 

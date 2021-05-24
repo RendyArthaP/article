@@ -7,12 +7,14 @@ import Navbar from '../../components/Navbar';
 import SocialDetails from '../../components/SocialDetails';
 import Author from '../../components/Author';
 import Comment from '../../components/Comment';
+import moment from 'moment';
 
 const DetailsArticle = () => {
   const router = useRouter()
   let { id } = router.query
   const dispatch = useDispatch()
-  const articleByID = useSelector((state) => state.handleArticle.data.data)
+  const articleByID = useSelector((state) => state.handleArticle.dataById)
+  console.log(articleByID)
   const loading = useSelector((state) => state.handleArticle.isLoading)
 
   useEffect(() => {
@@ -46,7 +48,7 @@ const DetailsArticle = () => {
                     {articleByID.category}
                   </span>
                   <p className="font-normal text-base text-grey">
-                    {articleByID.date.slice(0, 10)}
+                    {moment(articleByID.date).format('MMMM Do YYYY')}
                   </p>
                 </div>
               </div>

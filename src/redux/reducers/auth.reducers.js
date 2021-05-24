@@ -6,7 +6,11 @@ import {
   LOGOUT
 } from '../actions/auth.actions';
 
-const token = localStorage.getItem("token")
+const token = () => {
+  if (typeof window !== "undefined") {
+    return localStorage.getItem("token")
+  }
+}
 
 const initialState = !token 
   ?
