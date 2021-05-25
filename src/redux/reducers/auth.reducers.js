@@ -25,7 +25,6 @@ const initialState = !token
 const handleAuth = (state = initialState, action) => {
   switch(action.type) {
     case AUTH_REQUEST:
-      console.log(token)
       return {
         ...state,
         isLoading: true
@@ -41,7 +40,6 @@ const handleAuth = (state = initialState, action) => {
         isLoading: false
       }
     case LOGIN_SUCCESS:
-      console.log(token())
       return {
         ...state,
         isLogged: true,

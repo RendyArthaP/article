@@ -9,17 +9,15 @@ import { getArticle } from '../redux/actions/article.actions';
 
 export default function Home() {
   const dispatch = useDispatch()
+  const [getToken, setGetToken] = useState()
   const articles = useSelector((state) => state.handleArticle.data)
   const loading = useSelector((state => state.handleArticle.isLoading))
   const searchArticle = useSelector((state) => state.handleArticle.categoryArticle)
   const [searchName, setSearchName] = useState("")
-  const searchNameArticle = () => {
-    articles.filter((item) => {
-
-    })
-  }
-
+  
   useEffect(() => {
+    let tokens = window.localStorage.getItem("token")
+    setGetToken(tokens)
     dispatch(getArticle())
   }, [dispatch, searchArticle])
 
@@ -34,18 +32,17 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet"></link>
       </Head>
       
-      <main>
+      <main className="">
         <Navbar />
         <Searchbar 
           articles = {articles ? articles : []} 
           searchName = {searchName}
           setSearchName = {setSearchName}
-          searchNameArticle = {searchNameArticle}
         />
         {loading 
           ?
             <div>
-              <h1 className="text-center mt-20 text-3xl font-bold">
+              <h1 className="text-center mt-20 text-3xl font-bold h-screen">
                 Please wait...
               </h1>
             </div>
@@ -54,7 +51,6 @@ export default function Home() {
               articles = {articles ? articles : []} 
               searchName = {searchName}
               setSearchName = {setSearchName}
-              searchNameArticle = {searchNameArticle}
             />
         }
         <Footer />

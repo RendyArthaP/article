@@ -1,16 +1,29 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { loginAction } from '../../redux/actions/auth.actions';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Router from "next/router";
 
 const Login = () => {
+  const [getToken, setGetToken] = useState()
   const dispatch = useDispatch()
   const[login, setLogin] = useState({
     name: "",
     password: ""
   })
+
+  const handleChange = (e) => {
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  useEffect(() => {
+    let tokens = window.localStorage.getItem("token")
+    setGetToken(tokens)
+  }, [])
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -39,6 +52,8 @@ const Login = () => {
                 Username
               </label>
               <input 
+                value={login.name}
+                onChange={handleChange}
                 id="name" 
                 type="name" 
                 name="name" 
@@ -50,6 +65,8 @@ const Login = () => {
                 Password
               </label>
               <input 
+                value={login.password}
+                onChange={handleChange}
                 id="password" 
                 type="password" 
                 name="password" 

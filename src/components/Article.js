@@ -2,7 +2,7 @@ import ListArticle from "./ListArticle"
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-const Article = ({articles, searchName, setSearchName, searchNameArticle}) => {
+const Article = ({articles, searchName}) => {
   const [articleFiltered, setArticleFiltered] = useState([...articles])
   const searchArticle = useSelector((state) => state.handleArticle.categoryArticle)
   const [pageLoad, setPageLoad] = useState(8)

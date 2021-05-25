@@ -70,13 +70,11 @@ export const loginAction = (e, data, setLogin) => {
   return function(dispatch) {
     e.preventDefault();
     dispatch(authRequest())
-
     axios
       .post(process.env.LOGIN, data)
       .then((result) => {
         if(result.data.token !== undefined) {
-          localStorage.token = result.data.token
-          localStorage.payload = JSON.stringify(result.data.data);
+          localStorage.setItem("token", result.data.token)
           dispatch(loginSuccess(result.data.token))
         } else {
           setLogin({
