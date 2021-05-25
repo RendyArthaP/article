@@ -11,19 +11,20 @@ const Searchbar = ({articles, searchName, setSearchName, searchNameArticle}) => 
       <div className="w-full max-w-3xl my-2 md:my-0 md:mx-4">
         <input 
           type="text"
-          className="border border-gray rounded p-2 focus:outline-none w-full"
+          className="border border-gray font-cabin rounded p-2 focus:outline-none w-full"
           value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
+          placeholder="Masukkan kata kunci atau judul article"
         />
         <button 
-          className="bg-orange border -ml-16 absolute py-2 border-gray rounded w-16 text-white"
+          className="bg-orange border -ml-16 font-cabin absolute py-2 border-gray rounded w-16 text-white"
           onClick={searchNameArticle}
         >
           Cari
         </button>
       </div>
       <select 
-        className="border border-gray rounded text-grayText p-2 w-full md:w-32 focus:outline-none md:mx-2 my-2 md:my-0"
+        className="border border-gray rounded font-cabin text-grayText p-2 w-full md:w-32 focus:outline-none md:mx-2 my-2 md:my-0"
         value={searchArticle}
         onChange={(e) => dispatch(categorySelected(e.target.value))}
       >
@@ -38,7 +39,7 @@ const Searchbar = ({articles, searchName, setSearchName, searchNameArticle}) => 
           )
         })}
       </select>
-      <select className="border border-gray rounded text-grayText p-2 w-full md:w-32 focus:outline-none md:mx-2 my-2 md:my-0">
+      <select className="border border-gray rounded font-cabin text-grayText p-2 w-full md:w-32 focus:outline-none md:mx-2 my-2 md:my-0">
         <option>Urutkan</option>
       </select>
     </div>

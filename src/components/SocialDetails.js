@@ -14,12 +14,12 @@ const SocialDetails = () => {
         <div onClick={() => setClaps(claps + 1)} className="cursor-pointer">
           <Claphands />
         </div>
-        <p className="font-normal text-base ml-1">
+        <p className="font-normal text-base ml-1 font-cabin">
           {claps} claps
         </p>
       </div>
       <div className="mt-4 flex flex-col md:flex-row md:items-center">
-        <p className="md:mr-2">
+        <p className="md:mr-2 font-cabin">
           Share
         </p>
         <div className="flex flex-row mt-1">
@@ -38,7 +38,7 @@ const SocialDetails = () => {
         </div>
       </div>
       <div className="mt-4 flex flex-row md:items-center">
-        <h1 className="mr-2">
+        <h1 className="mr-2 font-cabin">
           Bookmark
         </h1>
         <Bookmark />
