@@ -15,7 +15,8 @@ const DetailsArticle = () => {
   const dispatch = useDispatch()
   const articleByID = useSelector((state) => state.handleArticle.dataById)
   const loading = useSelector((state) => state.handleArticle.isLoading)
-
+  const isLogin = useSelector((state) => state.handleAuth.isLogged)
+  
   useEffect(() => {
     dispatch(getArticleById(id))
   }, [dispatch, id])
@@ -29,7 +30,7 @@ const DetailsArticle = () => {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet"></link>
       </Head>
-      <Navbar />
+      <Navbar isLogin={isLogin}/>
       <main>
         {loading
           ?
@@ -65,7 +66,7 @@ const DetailsArticle = () => {
               </div>
               <SocialDetails />
               <Author />
-              <Comment />
+              <Comment isLogin={isLogin}/>
             </div>
         }
       </main>

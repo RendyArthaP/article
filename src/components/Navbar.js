@@ -27,8 +27,10 @@ const Navbar = ({isLogin}) => {
           </h1>
         </Link>
         <div className="hidden lg:flex flex-row md:ml-6">
-          <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Event</h1>
-          <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Blog</h1>
+          <div>
+            <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Event</h1>
+            <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Blog</h1>
+          </div>
           <select className="mx-4 w-10 cursor-pointer">
             <option className="font-poppins">ID</option>
             <option className="font-poppins">ENG</option>

@@ -48,13 +48,22 @@ export const postCommentError = (error) => {
   }
 }
 
-export const postComment = (data) => {
+export const postComment = (articleID, inputComment) => {
   return function(dispatch) {
+    const user = JSON.parse(localStorage.payload)._id
     dispatch(postCommentRequest())
 
+    const addComment = {
+      user_id: user,
+      article_id: articleID,
+      comment: inputComment
+    }
+
+    console.log(addComment)
+
     axios
-      .post(process.env.POST_COMMENT, data)
-      .then((result) => dispatch(postCommentSuccess(result.data)))
+      .post(process.env.POST_COMMENT, addComment)
+      .then((result) => dispatch(postCommentSuccess(result.data.data)))
       .catch((error) => dispatch(postCommentError(error)))
   }
 }

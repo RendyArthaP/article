@@ -4,17 +4,22 @@ import { postComment, getComment } from '../redux/actions/comment.actions';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-const Comment = () => {
+const Comment = ({isLogin}) => {
   const router = useRouter()
   let { id } = router.query
   const dispatch = useDispatch()
   const comments = useSelector((state) => state.handleComment.data.data)
-  const [inputComment, setInputComment] = useState("")
-
+  const [comment, setComment] = useState("")
+  console.log(comments)
+  const handleComment = (e) => {
+    e.preventDefault();
+    dispatch(postComment(id, comment))
+  }
+  
   useEffect(() => {
     dispatch(getComment(id))
   }, [dispatch, id])
-
+  
   return (  
     <main className="mt-6 pb-6">
       <div className="flex flex-col md:flex-row justify-between">
@@ -33,29 +38,40 @@ const Comment = () => {
           </span>
         </div>
       </div>
-      <div className="w-full max-w-4xl my-2 md:my-0 mx-auto pt-4">
-        <input 
-          type="text"
-          className="border border-gray rounded p-2 font-cabin focus:outline-none w-full"
-          value={inputComment}
-          onChange={(e) => setInputComment(e.target.value)}
-        />
-        <button className="bg-orange border -ml-16 absolute py-2 font-cabin border-gray rounded w-16 text-white">
-          Add
-        </button>
-      </div>
+      {isLogin 
+        ?
+          <div className="w-full max-w-4xl my-2 md:my-0 mx-auto pt-4">
+            <input 
+              type="text"
+              className="border border-gray rounded p-2 font-cabin focus:outline-none w-full"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <button 
+              type="button"
+              className="bg-orange border -ml-16 absolute py-2 font-cabin border-gray rounded w-16 text-white"
+              onClick={handleComment}
+            >
+              Add
+            </button>
+          </div>
+        :
+          null
+      }
       {!!comments && comments.length === 0 
         ? 
           <div className="text-center font-bold text-2xl mt-10">
             <h1 className="font-cabin">Silahkan beri review</h1>
           </div>
         :
-          !!comments && comments.map((comment, index) => (
-            <ListComment 
-              comment = {comment} 
-              key={index}
-            />
-          ))
+          <>
+            {!!comments && comments.map((commentList, index) => (
+              <ListComment 
+                comment = {commentList} 
+                key={index}
+              />
+            ))}
+          </>
       }
     </main>
   );

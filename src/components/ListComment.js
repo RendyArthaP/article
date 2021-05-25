@@ -3,17 +3,19 @@ import moment from 'moment';
 import Love from '../assets/icons/Love';
 
 const ListComment = ({comment}) => {
-  console.log(comment)
+  const firstLetterUpperCase = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
   return ( 
     <div className="mt-6 flex flex-row items-center">
       <div className="w-10 h-10 bg-orange rounded-full">
         <h1 className="text-lg text-center pt-1.5 text-white font-cabin">
-          {comment.username.charAt(0).toUpperCase()}
+          {JSON.parse(localStorage.payload).name.charAt(0).toUpperCase()}
         </h1>
       </div>
       <div className="flex flex-col mx-2">
         <h1 className="font-normal text-base text-gray font-cabin">
-          {comment.username}
+          {firstLetterUpperCase(JSON.parse(localStorage.payload).name)}
         </h1>
         <span className="font-normal text-sm text-gray my-1 font-cabin">
           {comment.comment}

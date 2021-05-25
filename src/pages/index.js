@@ -14,7 +14,6 @@ export default function Home() {
   const loading = useSelector((state => state.handleArticle.isLoading))
   const searchArticle = useSelector((state) => state.handleArticle.categoryArticle)
   const isLogin = useSelector((state) => state.handleAuth.isLogged)
-  console.log(isLogin)
   const [searchName, setSearchName] = useState("")
   
   useEffect(() => {
