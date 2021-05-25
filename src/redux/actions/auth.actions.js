@@ -74,7 +74,8 @@ export const loginAction = (e, data, setLogin) => {
       .post(process.env.LOGIN, data)
       .then((result) => {
         if(result.data.token !== undefined) {
-          localStorage.setItem("token", result.data.token)
+          localStorage.token = result.data.token
+          localStorage.payload = JSON.stringify(result.data.data);
           dispatch(loginSuccess(result.data.token))
         } else {
           setLogin({

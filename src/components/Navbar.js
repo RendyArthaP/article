@@ -1,8 +1,20 @@
 import Link from 'next/link';
 import Hamburger from '../assets/icons/Hamburger';
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { logoutAction } from '../redux/actions/auth.actions';
+import Router from "next/router";
 
-const Navbar = () => {
+const Navbar = ({isLogin}) => {
+  const dispatch = useDispatch()
+  const firstLetterUpperCase = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+  const handleLogout = () => {
+    localStorage.clear()
+    dispatch(logoutAction())
+    Router.push('/')
+  }
   const [navbarMobile, setNavbarMobile] = useState(false)
   return (
     <div 
@@ -24,12 +36,29 @@ const Navbar = () => {
         </div>
       </div>
       <div className="hidden md:flex flex-row items-center">
-        <Link href="/login">
-          <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Masuk</h1>
-        </Link>
-        <Link href="/register">
-          <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Daftar</h1>
-        </Link>
+        {isLogin 
+          ?
+            <div className="flex flex-row items-center">
+              <h1>
+                Hello, {firstLetterUpperCase(JSON.parse(localStorage.payload).name)}
+              </h1>
+              <button 
+                className="mx-4"
+                onClick={handleLogout}
+              >
+                Log out
+              </button>
+            </div>
+          :
+            <>
+              <Link href="/login">
+                <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Masuk</h1>
+              </Link>
+              <Link href="/register">
+                <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Daftar</h1>
+              </Link>
+            </>
+        }
         <button className="ml-4 border w-36 text-orange font-poppins font-normal text-xl border-orange p-1 hover:bg-orange hover:text-white">
           Perusahaan
         </button>

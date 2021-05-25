@@ -28,7 +28,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     dispatch(loginAction(e, login, setLogin))
-    // Router.push('/')
+    Router.push('/')
   }
   return ( 
     <>

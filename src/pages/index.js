@@ -13,6 +13,8 @@ export default function Home() {
   const articles = useSelector((state) => state.handleArticle.data)
   const loading = useSelector((state => state.handleArticle.isLoading))
   const searchArticle = useSelector((state) => state.handleArticle.categoryArticle)
+  const isLogin = useSelector((state) => state.handleAuth.isLogged)
+  console.log(isLogin)
   const [searchName, setSearchName] = useState("")
   
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function Home() {
       </Head>
       
       <main className="">
-        <Navbar />
+        <Navbar isLogin={isLogin}/>
         <Searchbar 
           articles = {articles ? articles : []} 
           searchName = {searchName}
