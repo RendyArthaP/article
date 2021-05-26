@@ -59,8 +59,6 @@ export const postComment = (articleID, inputComment) => {
       comment: inputComment
     }
 
-    console.log(addComment)
-
     axios
       .post(process.env.POST_COMMENT, addComment)
       .then((result) => dispatch(postCommentSuccess(result.data.data)))

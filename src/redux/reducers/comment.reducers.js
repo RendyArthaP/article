@@ -37,6 +37,8 @@ const handleComment = (state = initialState, action) => {
         isLoading: true
       }
     case POSTCOMMENTBYARTICLE_SUCCESS:
+      console.log(state.data.data, 'data')
+      console.log(action.result, 'result')
       return {
         ...state,
         isLoading: false,

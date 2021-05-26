@@ -9,11 +9,12 @@ const Comment = ({isLogin}) => {
   let { id } = router.query
   const dispatch = useDispatch()
   const comments = useSelector((state) => state.handleComment.data.data)
+  // console.log(comments)
   const [comment, setComment] = useState("")
-  console.log(comments)
   const handleComment = (e) => {
     e.preventDefault();
     dispatch(postComment(id, comment))
+    setComment("")
   }
   
   useEffect(() => {

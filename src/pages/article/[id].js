@@ -34,11 +34,11 @@ const DetailsArticle = () => {
       <main>
         {loading
           ?
-          <div>
-            <h1 className="text-center mt-20 text-3xl font-bold">
-              Please wait...
-            </h1>
-          </div>
+            <>
+              <h1 className="text-center mt-20 text-3xl font-bold">
+                Please wait...
+              </h1>
+            </>
           :
             <div className="my-10 px-6 xl:px-10 2xl:px-16 w-full max-w-4xl mx-auto">
               <div className="flex flex-col">

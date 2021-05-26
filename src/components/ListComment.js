@@ -10,12 +10,12 @@ const ListComment = ({comment}) => {
     <div className="mt-6 flex flex-row items-center">
       <div className="w-10 h-10 bg-orange rounded-full">
         <h1 className="text-lg text-center pt-1.5 text-white font-cabin">
-          {JSON.parse(localStorage.payload).name.charAt(0).toUpperCase()}
+          {comment.user_id.name.charAt(0).toUpperCase()}
         </h1>
       </div>
       <div className="flex flex-col mx-2">
         <h1 className="font-normal text-base text-gray font-cabin">
-          {firstLetterUpperCase(JSON.parse(localStorage.payload).name)}
+          {firstLetterUpperCase(comment.user_id.name)}
         </h1>
         <span className="font-normal text-sm text-gray my-1 font-cabin">
           {comment.comment}

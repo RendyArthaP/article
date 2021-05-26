@@ -17,9 +17,7 @@ const Navbar = ({isLogin}) => {
   }
   const [navbarMobile, setNavbarMobile] = useState(false)
   return (
-    <div 
-      className="flex flex-row justify-between p-4 md:px-6 shadow-lg xl:px-10 2xl:px-16"
-    >
+    <div className="flex flex-row justify-between p-4 md:px-6 shadow-lg xl:px-10 2xl:px-16">
       <div className="flex flex-row items-center">
         <Link href="/">
           <h1 className="text-orange font-bold text-3xl cursor-pointer font-poppins">
@@ -27,10 +25,8 @@ const Navbar = ({isLogin}) => {
           </h1>
         </Link>
         <div className="hidden lg:flex flex-row md:ml-6">
-          <div>
-            <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Event</h1>
-            <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Blog</h1>
-          </div>
+          <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Event</h1>
+          <h1 className="mx-4 font-normal text-xl cursor-pointer font-poppins hover:text-orange">Blog</h1>
           <select className="mx-4 w-10 cursor-pointer">
             <option className="font-poppins">ID</option>
             <option className="font-poppins">ENG</option>
