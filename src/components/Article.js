@@ -19,7 +19,7 @@ const Article = ({articles, searchName}) => {
   }, [searchArticle])
 
   return (
-    <>
+    <div>
       <div className="mt-8 lg:mt-24 w-full max-w-6xl mx-auto px-4 md:px-20 lg:px-8 2xl:px-16 flex flex-row flex-wrap justify-between"> 
         {articleFiltered.filter((article) => {
           if(searchName === "") {
@@ -40,14 +40,16 @@ const Article = ({articles, searchName}) => {
         ? 
           null
         :
-        <button 
-          className="bg-orange text-white shadow-orange font-poppins my-24 py-2 mx-auto flex justify-center focus:outline-none rounded w-32"
-          onClick={loadMore}
-        >
-          Load More
-        </button>
+        <div className="">
+          <button 
+            className="bg-orange text-white shadow-orange font-poppins my-24 py-2 mx-auto flex justify-center focus:outline-none rounded w-32"
+            onClick={loadMore}
+          >
+            Load More
+          </button>
+        </div>
       }
-    </>
+    </div>
   )
 }
 

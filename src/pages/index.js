@@ -33,7 +33,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet"></link>
       </Head>
       
-      <main className="">
+      <main>
         <Navbar isLogin={isLogin}/>
         <Searchbar 
           articles = {articles ? articles : []} 

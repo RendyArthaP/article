@@ -71,6 +71,7 @@ export const getArticle = () => {
 export const getArticleById = (_id) => {
   return function(dispatch) {
     dispatch(getArticleByIdRequest())
+    console.log(`${process.env.ARTICLE}/${_id}`)
     axios
       .get(`${process.env.ARTICLE}/${_id}`)
       .then((result) => dispatch(getArticleByIdSuccess(result.data)))

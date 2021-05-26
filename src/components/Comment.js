@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postComment, getComment } from '../redux/actions/comment.actions';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Router from "next/router";
 
 const Comment = ({isLogin}) => {
   const router = useRouter()
   let { id } = router.query
   const dispatch = useDispatch()
   const comments = useSelector((state) => state.handleComment.data.data)
-  // console.log(comments)
-  const [comment, setComment] = useState("")
-  const handleComment = (e) => {
-    e.preventDefault();
-    dispatch(postComment(id, comment))
-    setComment("")
+  console.log(comments)
+  const [inputComment, setInputComment] = useState("")
+  const handleComment = () => {
+    dispatch(postComment(id, inputComment))
+    setInputComment("")
   }
   
   useEffect(() => {
@@ -45,8 +45,8 @@ const Comment = ({isLogin}) => {
             <input 
               type="text"
               className="border border-gray rounded p-2 font-cabin focus:outline-none w-full"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
+              value={inputComment}
+              onChange={(e) => setInputComment(e.target.value)}
             />
             <button 
               type="button"

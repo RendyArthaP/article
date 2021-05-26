@@ -69,7 +69,6 @@ export const postComment = (articleID, inputComment) => {
 export const getComment = (article_id) => {
   return function(dispatch) {
     dispatch(getCommentRequest())
-
     axios
       .get(`${process.env.GET_COMMENT}/${article_id}`)
       .then((result) => dispatch(getCommentSuccess(result.data)))
